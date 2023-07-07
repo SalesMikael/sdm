@@ -1,0 +1,11 @@
+IMPORTANTE
+
+    1. na tela_editar_perfil, ao clicar em enviar, cuidado com o submit, 
+    fazer com que volte para a tela principal
+    2. na tela_cadastro, ao enviar as informações, fazer com que volte para tela_inicial
+    3. 
+
+Mudanças significativas
+
+    1. ao sair do jogo no menu, o usuario volta para a tela_inicial e nao tela_principal
+    2. no input de fotos, tirei o style de margin zero

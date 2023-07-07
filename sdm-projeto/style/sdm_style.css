@@ -1,0 +1,647 @@
+/* 
+Link para stysheet de icones do google, style_sdm e icone
+
+  <link rel="stylesheet" type="text/css" href="style\sdm_style.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="icon" href="images/Icons/Vector.png" type="image/x-icon">
+
+*/
+
+/* Body para todos so arquivos */
+body,
+.body-anim {
+  background: linear-gradient(109deg, #106b87, #260d33, #450725, #660735);
+  background-size: 200% 500%;
+  background-repeat: repeat;
+  /*color: rgba(38, 13, 51, 1); alguns não usam, logo melhor deixar para cada div*/
+  transition: opacity 0.3s ease-in-out;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgba(38, 13, 51, 1);
+  margin: 0;
+  overflow: auto;
+}
+
+.body-anim {
+  background-size: 800% 800% !important;
+  animation: AnimationName 60s ease infinite;
+}
+
+/*animação do fundo */
+@keyframes AnimationName {
+  0% {
+    background-position: 1% 0%;
+  }
+
+  50% {
+    background-position: 99% 100%;
+  }
+
+  100% {
+    background-position: 1% 0%;
+  }
+}
+
+/*>>>>>>>>>>>CSS PARA IMAGENS*/
+
+img#logo-navbar {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+}
+
+img#logo-media {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 250px;
+  padding: 20px;
+}
+
+img#logo-grande {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 500px;
+  padding: 20px;
+}
+
+/*>>>>>>>>>>>>>A partir daqui são estilos de telas */
+
+/* Essa div é para telas que usam mais de uma tela */
+.principal {
+  height: 100vh;
+  filter: blur(0);
+  transition: filter 0.3s ease-in-out;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Essa tela é para aquelas que aparecem sobre as outras
+    >>>ESTE NÃO É O CONTEUDO DA TELA<<< 
+    
+    >>> uma tela nao tem padding e outra tem, preste muita atenção!!!
+    */
+.teladesobreposicao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+}
+
+/* Quando a tela aparece, ela tem essas propriedades
+    Retire o "active" para ela ficar fixa na hora de programar */
+.teladesobreposicao.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out, visibility 0s linear;
+}
+
+/* Dentro de cada tela tem um  */
+.teladesobreposicao-cont {
+  background-color: rgb(211, 211, 211);
+  color: #260d33;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+/*>>>>>>>>>>>>>A partir daqui são estilos de cards */
+
+.card-normal {
+  background-color: rgba(169, 164, 179, 1);
+  width: 500px;
+  height: auto;
+  margin: 100px auto;
+  border-radius: 25px;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  justify-self: center;
+  margin-top: 3.5%;
+}
+
+.card-perguntas {
+  background-color: rgba(169, 164, 179, 1);
+  width: 80%;
+  height: auto;
+  margin: 100px auto;
+  border-radius: 25px;
+  padding: 30px 20px 20px 30px;
+  align-items: center;
+  display: block;
+  box-sizing: border-box;
+  margin-top: 3.5%;
+}
+
+.divisoria {
+  border: none;
+  border-top: 1px solid;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 90%;
+  border-color: rgba(38, 13, 51, 1);
+}
+
+.perguntas {
+  width: 95%;
+  height: auto;
+  text-align: left;
+  justify-items: center;
+  background-color: rgb(190, 190, 200);
+  padding: 0px 20px 20px 20px;
+  border-radius: 15px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.informacoes p {
+  margin-bottom: -6px;
+}
+
+.link {
+  color: rgba(38, 13, 51, 1);
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.link:hover {
+  color: rgba(21, 122, 140, 1);
+}
+
+/*>>>>>>>>>>>>>A partir daqui são estilos de botões */
+
+/* ao colocar um botão, sempre use ".btn" e depois outra propriedade */
+.btn {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  cursor: pointer;
+}
+
+.btn-sdm {
+  text-align: center;
+  border-radius: 50px;
+  background-color: rgba(21, 122, 140, 1);
+  border: 2px solid rgba(21, 122, 140, 1);
+  color: rgba(38, 13, 51, 1);
+  font-size: 14pt;
+  width: auto;
+  height: auto;
+  /* margin-top: 25px; */
+  padding: 3px 10px 3px 10px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.btn-sdm:hover {
+  background-color: rgba(38, 13, 51, 1);
+  color: rgba(21, 122, 140, 1);
+}
+
+.btn-maior {
+  /* width: 5% !important;
+    height: 45px !important; */
+  padding: 10px 30px 10px 30px !important;
+}
+
+.btn-sdm-info {
+  text-align: center;
+  border-radius: 50px;
+  background-color: rgba(21, 122, 140, 1);
+  border: 1px solid rgba(21, 122, 140, 1);
+  color: white;
+  font-size: 11pt;
+  width: auto;
+  height: auto;
+  margin-top: 25px;
+  padding: 3px 10px 3px 10px;
+  cursor: default;
+  margin-right: 5px;
+}
+
+.btn-sdm-info:hover {
+  background-color: rgb(18, 113, 129);
+  border: 1px solid rgb(18, 113, 129);
+}
+
+.btn-sdm-verde {
+  text-align: center;
+  border-radius: 50px;
+  background-color: rgb(42, 133, 20);
+  border: 1px solid rgb(42, 133, 20);
+  color: white;
+  font-size: 11pt;
+  width: auto;
+  height: auto;
+  margin-top: 25px;
+  padding: 3px 10px 3px 10px;
+  cursor: default;
+  margin-right: 5px;
+}
+
+.btn-sdm-verde:hover {
+  background-color: rgb(38, 117, 18);
+  border: 1px solid rgb(38, 117, 18);
+}
+
+.btn-sdm-danger {
+  text-align: center;
+  border-radius: 50px;
+  background-color: #dc3444;
+  border: 1px solid #dc3444;
+  color: white;
+  font-size: 14pt;
+  width: auto;
+  height: auto;
+  /* margin-top: 25px; */
+  padding: 3px 10px 3px 10px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.btn-sdm-danger:hover {
+  background-color: #c42e3d;
+  border: 1px solid #c42e3d;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.btn-outline-sdm {
+  text-align: center;
+  border-radius: 50px;
+  background-color: transparent;
+  border: 1px solid rgba(21, 122, 140, 1);
+  color: rgba(21, 122, 140, 1);
+  font-size: 11pt;
+  width: auto;
+  height: auto;
+  margin-top: 25px;
+  padding: 3px 10px 3px 10px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.btn-outline-sdm:hover {
+  background-color: rgba(21, 122, 140, 1);
+  border: 1px solid rgba(21, 122, 140, 1);
+  color: rgb(255, 255, 255);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.btn-outline-sdm-danger {
+  text-align: center;
+  border-radius: 50px;
+  background-color: transparent;
+  border: 1px solid #dc3444;
+  color: #dc3444;
+  font-size: 11pt;
+  width: auto;
+  height: auto;
+  margin-top: 25px;
+  padding: 3px 10px 3px 10px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.btn-outline-sdm-danger:hover {
+  background-color: #dc3444;
+  border: 1px solid #dc3444;
+  color: rgb(255, 255, 255);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.btn-outline-sdm-verde {
+  text-align: center;
+  border-radius: 50px;
+  background-color: transparent;
+  border: 1px solid rgb(42, 133, 20);
+  color: rgb(42, 133, 20);
+  font-size: 11pt;
+  width: auto;
+  height: auto;
+  margin-top: 25px;
+  padding: 3px 10px 3px 10px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.btn-outline-sdm-verde:hover {
+  background-color: rgb(42, 133, 20);
+  border: 1px solid rgb(42, 133, 20);
+  color: rgb(255, 255, 255);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+}
+
+.btn-opc {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  font-size: 18px;
+  font-weight: 700;
+  color: #260d33;
+  border: 1.5px solid #106b87;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 25px;
+}
+
+.btn-opc::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #106b87;
+  border: 3px solid #106b87;
+  transform: translateX(-100%);
+  transition: all 0.5s;
+  z-index: -1;
+}
+
+.btn-opc:hover::before {
+  transform: translateX(0);
+}
+
+.botao-texto {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.span-style {
+  margin-left: 10px;
+  display: inline-block;
+}
+
+/* >>>>>>>>>>CSS da nav bar */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: auto block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  align-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* CSS apenas para o logo */
+.navbar-logo {
+  display: inline-block;
+  align-content: left;
+  margin-left: 20px;
+}
+
+/* CSS para o conteudo */
+.navbar-cont {
+  color: white;
+  text-align: right;
+  display: inline-block;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: -15px 17.5px 10px 10px;
+}
+
+.grupo-botoes-inline {
+  margin-right: 3px;
+  margin-left: 3px;
+}
+
+/*>>>>>>>>>>Syles para inputs e forms*/
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select.custom-select {
+  border: 2px solid #4d4d4d;
+  border-radius: 10px;
+  background-color: transparent;
+  width: 100%;
+  transition: border-radius 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus,
+select.custom-select:focus {
+  outline: none;
+  border-color: #6c757d;
+  background-color: rgb(230, 230, 230);
+  border-radius: 20px;
+  transition: border-radius 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="email"]:hover,
+textarea:hover,
+select.custom-select:hover {
+  border: 2px solid #4d4d4d;
+  background-color: rgb(230, 230, 230);
+  border-radius: 20px;
+  width: 100%;
+  transition: border-radius 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+input {
+  display: block;
+  border-radius: 10px;
+  border: 2px solid #4d4d4d;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+fieldset,
+.desativado {
+  border: none;
+  transition: none;
+}
+
+fieldset:hover,
+.desativado:hover {
+  border: none;
+  border-radius: 10px !important;
+  transition: none;
+}
+
+select.custom-select {
+  height: 30px;
+}
+
+.link {
+  color: rgba(38, 13, 51, 1);
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.link:hover {
+  color: rgba(21, 122, 140, 1);
+}
+
+.texto-meio {
+  text-align: center;
+}
+
+label {
+  color: rgba(38, 13, 51, 1);
+  font-size: large;
+  padding-left: 5px;
+}
+
+.forms {
+  padding: 20px 30px 20px 20px;
+  text-align: left;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: max-content;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+}
+
+.form-control textarea {
+  resize: vertical;
+}
+
+textarea {
+  resize: vertical;
+  margin-top: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Aquele texto abaixo do nome e pergunta é esse */
+small {
+  color: #6c757d;
+  padding-left: 7px;
+}
+
+/* CSS referente aquele texto que fica abaixo da tela de sobreposição */
+.subtextoconfirmacao {
+  background-color: rgb(27, 8, 37);
+  color: rgb(211, 211, 211);
+  font-size: 10pt;
+  height: auto;
+  padding: 2px;
+  text-align: center;
+  justify-content: center;
+}
+
+.centralizador {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* Sabe aquele texto nos inputs, isso aqui mexe nisso */
+::placeholder {
+  padding-left: 10px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 40;
+}
+
+/* >>>>>>tabela */
+
+.tabela {
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 15pt;
+}
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+  background-color: transparent;
+  border: 0px;
+  padding: 0px;
+}
+
+th,
+td {
+  border-bottom: 1px solid rgba(38, 13, 51, 1);
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: transparent;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(190, 190, 200);
+}
+
+tr {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+tr:hover {
+  background-color: #2f103f;
+  color: #106b87;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.cabecalho-tabela {
+  background-color: #260d33;
+  color: #106b87;
+  font-size: 15pt;
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-danger strong {
+  font-weight: bold;
+}
+
+.profile_img {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 8px solid white;
+}

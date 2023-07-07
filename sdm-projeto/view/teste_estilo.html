@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste de estilos</title>
+  <link rel="stylesheet" type="text/css" href="style\sdm_style.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var telaprincipal = document.querySelector(".principal")//div principal, é toda a tela sem sobreposição
+      var telasobreposicao = document.querySelector(".teladesobreposicao")//é uma tela de sobreposição
+
+      var btnsobreposicao = document.getElementById("btn-sobreposicao")//um botão pego pelo o seu id
+
+      btnsobreposicao.addEventListener("click", function () {
+        telaprincipal.style.filter = "blur(5px)"//aplica o desfoque no fundo
+        telasobreposicao.classList.add("active")//mostra a tela escolhida
+      })
+
+      telasobreposicao.addEventListener("click", function () {
+        telaprincipal.style.filter = "blur(0)"; // Remove o desfoque do fundo
+        telasobreposicao.classList.remove("active")//tira a tela que estava na frente
+      })
+    })
+  </script>
+</head>
+
+<body>
+
+  <div class="principal">
+    <!-- começo da nav bar -->
+    <nav class="navbar">
+      <!-- aqui fica apenas o logo da navbar -->
+      <div class="navbar-logo">
+        <img id="logo-navbar" src="images/Show do Milhãobranco.png">
+      </div>
+      <!-- aqui fica o conteudo da nav bar, ela ficara alinhada a esquerda, preste atenção na sequencia -->
+      <div class="navbar-cont">
+        <button class="btn-outline-sdm"><span class="material-symbols-outlined">leaderboard</span></button>
+        <button class="btn-outline-sdm-danger" style="text-align: right;"><span
+            class="material-symbols-outlined">pause</span></button>
+      </div>
+    </nav>
+    <!-- Nav bar acabar e a partir daqui sao outros conteudos -->
+    <h3 style="color: white;">Logo abaixo é uma logo de tamanho média seu nome é #logo-media</h3>
+    <!-- Coloquei um fundo na foto, editei o estilo no proprio elemento, use isso em casos específicos -->
+    <img id="logo-media" src="images/Show do Milhãobranco.png" style="background-color: rgba(0, 0, 0, 0.1);" alt="">
+    <h3 style="color: white;">Logo abaixo é uma logo de tamanho grande, seu nome é #logo-grande</h3>
+    <img id="logo-grande" src="images/Show do Milhãobranco.png" style="background-color: rgba(0, 0, 0, 0.1);" alt="">
+    <div class="card-normal" style="justify-content: center; align-items: center; text-align: center;">
+
+      <button id="btn-sobreposicao" class="btn btn-sdm">teste de tela de sobreposição</button>
+
+      <!-- aqui começa um diva de formulario, quando tiver um formulario coloque tudo dentro dessa div
+      depois olhe o css dessa classe pra entender melhor
+      -->
+      <div class="forms">
+        <form>
+          <!-- Os elemntos dentro do formularios ficam organizados em form-group -->
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Digite seu nome completo">
+            <small id="ajudaPergunta">SEU NOME NÃO PODERÁ SER EDITADO NO FUTURO, TENHA
+              CUIDADO!</small>
+          </div>
+
+          <div class="form-group">
+            <label for="Nickname">Nickname</label>
+            <input type="text" class="form-control" id="Nickname" placeholder="Digite seu Nickname">
+          </div>
+
+          <form>
+            <div class="form-group">
+              <label for="foto">Escolha uma bela foto sua :)</label>
+              <input type="file" class="form-control-file" id="foto">
+            </div>
+          </form>
+
+          <div class="form-group">
+            <label for="email">Endereço de email</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Seu email">
+          </div>
+
+          <div class="form-group">
+            <label for="Senha">Senha</label>
+            <input type="password" class="form-control" id="Senha" placeholder="Senha">
+          </div>
+
+          <div class="form-group">
+            <label for="ConfirmarSenha">Confirmar Senha</label>
+            <input type="password" class="form-control" id="ConfirmarSenha" placeholder="Confirmar Senha">
+          </div>
+
+
+          <div class="form-group">
+            <label for="pergunta">Escreva a sua pergunta aqui</label>
+            <textarea class="form-control" id="pergunta" rows="3" maxlength="255"></textarea>
+            <small id="ajudaPergunta" class="form-text text-muted">
+              A sua pergunta irá para uma avaliação antes de entrar no jogo.
+              <br>Perguntas de conteúdo violento, que façam apologia a movimentos de ódio e afins <strong>NÃO SERÃO
+                ACEITAS</strong> e o usuário pode ter a sua conta <strong>BANIDA</strong>.
+            </small>
+          </div>
+
+          <!-- aqui colocar a opções, a formatação vai estar certa e vai aparecer que nem os outros -->
+
+          <div class="form-group">
+            <label for="Escolha">Escolha uma opção correta</label>
+            <div class="form-group">
+              <select class="custom-select">
+                <option value="">Selecione a opção correta</option>
+                <option value="A">Opção A</option>
+                <option value="B">Opção B</option>
+                <option value="C">Opção C</option>
+                <option value="D">Opção D</option>
+              </select>
+            </div>
+          </div>
+
+      </div>
+
+      <div class="text-center" style="text-align: center;">
+        <button type="submit" class="btn btn-sdm btn-maior">Enviar</button>
+      </div>
+
+      <button class="btn btn-sdm">teste</button>
+    </div>
+
+
+  </div>
+  <!-- aqui acaba o div principal -->
+  </div>
+  <div class="teladesobreposicao">
+    <div class="teladesobreposicao-cont">
+      <img src="images/Icons/feitocomcirculogrosso-menor-cut.png">
+      clica na tela que ela fecha
+      <div class="subtextoconfirmacao">
+        <small>tem algo errado nesse espaço aqui em cima</small>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

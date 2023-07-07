@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show do Milhão</title>
+  <link rel="stylesheet" type="text/css" href="../style\sdm_style.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="icon" href="images/Icons/Vector.png" type="image/x-icon">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var telaDenuncia = document.querySelector(".telaDenuncia");//tela de denuncia
+      var telaSaida = document.querySelector(".tela_saida"); // tela de saida
+      var telaPont = document.querySelector(".telapontuacao");//tela de pontuacao
+      var telaperdeu = document.querySelector(".telaconfirmacaosaida");//tela de confirmação de saida
+      var telacerteza = document.querySelector(".tela-temcerteza");//tela de certza de saida
+      var teladenunciado = document.querySelector(".telasucesso");//tela de denuncia realizada
+      var telaajuda = document.querySelector(".telaajuda");
+
+      var fecharBtns = document.querySelectorAll(".fechar-btn"); //funcao pra fechar telas
+      var principal = document.querySelector(".principal"); //tela principal
+
+      var abrirdenuncia = document.querySelector(".btn-denuncia");//botão de denuncia
+      var sairBtn = document.querySelector(".btn-saida"); //botao de saida
+      var abrirPont = document.querySelector(".btn-pontuacao"); //botao de pontuacao
+      var incerteza = document.querySelector(".incerteza-btn");//botao da incerteza
+      var denunciado = document.querySelector(".denunciado");//botao de sim na denuncia
+      var desistencia = document.querySelector(".desistencia-btn"); //botao de sim na tela de sair
+      var dica = document.querySelector(".ajuda")
+
+
+
+      abrirdenuncia.addEventListener("click", function () {
+        telaDenuncia.classList.add("active"); //exibe a tela de denuncia
+        principal.style.filter = "blur(5px)"; // Aplica o desfoque ao fundo
+      });
+
+      sairBtn.addEventListener("click", function () {
+        telaSaida.classList.add("active"); // Exibe a tela de saída
+        principal.style.filter = "blur(5px)"; // Aplica o desfoque ao fundo
+      });
+
+      abrirPont.addEventListener("click", function () {
+        telaPont.classList.add("active");//exibe a tela de saída
+        principal.style.filter = "blur(5px)";//Aplica o desfoque ao fundo
+      });
+
+      incerteza.addEventListener("click", function () {
+        telacerteza.classList.add("active");//exibe a tela de incerteza
+        telaSaida.classList.remove("active"); // Esconde a tela de saída
+      })
+
+      desistencia.addEventListener("click", function () {
+        telaperdeu.classList.add("active");//exibe tela de desistencia
+        telacerteza.classList.remove("active");
+        principal.style.filter = "blur(5px)";//Aplica o desfoque ao fundo
+      })
+
+      denunciado.addEventListener("click", function () {
+        teladenunciado.classList.add("active");//exibe tela de denuncia realizada
+        telaDenuncia.classList.remove("active");
+      })
+      /*
+        A função abaixo é para quando clicar na tela, ela fechar
+      */
+      teladenunciado.addEventListener("click", function () {
+        principal.style.filter = "blur(0)"; // Remove o desfoque do fundo
+        teladenunciado.classList.remove("active")
+      })
+
+      dica.addEventListener("click", function(){
+        telaajuda.classList.add("active");
+        principal.style.filter = "blur(5px)";
+      });
+
+
+      fecharBtns.forEach(function (btn) { //função para que todos os btn-fechar fechem os conteudos
+        btn.addEventListener("click", function () {
+          principal.style.filter = "blur(0)"; // Remove o desfoque do fundo
+          telaDenuncia.classList.remove("active"); //esconde a tela de denuncia
+          telaSaida.classList.remove("active"); // Esconde a tela de saída
+          telaPont.classList.remove("active"); // esconde a tela de pontuação
+          telacerteza.classList.remove("active");//esconde a tela de incerteza
+          telaajuda.classList.remove("active");
+        });
+      });
+
+
+    });
+
+  </script>
+</head>
+
+<body>
+  <!--
+    tela principal aqui
+  -->
+  <div class="principal">
+    <nav class="navbar">
+      <a class="navbar-logo">
+        <img id="logo-navbar" src="images/Show do Milhãobranco.png"></a>
+      <div class="navbar-cont centralizador">
+
+        <button id="ajuda" class="btn btn-sdm-info grupo-botoes-inline ajuda" style="cursor: help;">
+          <div class="centralizador">
+            <span>Dicas</span>
+            <span class="material-symbols-outlined">
+              tips_and_updates
+            </span>
+          </div>
+        </button>
+
+        <button id="dica_ver_resposta" class="btn btn-outline-sdm grupo-botoes-inline" type="button">
+          <span class="material-symbols-outlined">
+            visibility
+          </span>
+        </button>
+
+        <button id="dica_menos_dois" class="btn btn-outline-sdm grupo-botoes-inline" type="button">
+          <span class="material-symbols-outlined">
+            exposure_neg_2
+          </span>
+        </button>
+
+        <button id="dica_publico" class="btn btn-outline-sdm grupo-botoes-inline" type="button">
+          <span class="material-symbols-outlined">
+            leaderboard
+          </span>
+        </button>
+
+        <button id="dica_troca" class="btn btn-outline-sdm" type="button" style="margin-right: 50px;">
+          <span class="material-symbols-outlined">
+            swap_horiz
+          </span>
+        </button>
+
+        <!-- divisoria -->
+        <button id="btn-pontuacao" class="btn btn-outline-sdm-verde btn-pontuacao" type="button"
+          style="margin-right: 50px;">
+          <span class="material-symbols-outlined">
+            savings
+          </span>
+        </button>
+
+        <button id="btn-denuncia" class="btn btn-outline-sdm-danger btn-denuncia grupo-botoes-inline" type="button">
+          <span class="material-symbols-outlined">
+            report
+          </span>
+        </button>
+
+        <button id="btn-saida" class="btn btn-outline-sdm-danger btn-saida grupo-botoes-inline" type="button">
+          <span class="material-symbols-outlined">
+            logout
+          </span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="card-perguntas">
+      <div>
+        <!-- conteúdo a partir daqui -->
+        <div class="perguntas">
+          <div>
+            <h1>Pergunta 1/7</h1>
+            <div class="textodapergunta">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor dolor vel mauris vehicula, eget
+              interdum
+              mauris blandit. Curabitur semper scelerisque justo sit amet eleifend. Lorem ipsum dolor sit amet,
+              consectetur
+              adipiscing elit. Sed auctor dolor vel mauris vehicula, eget interdum mauris blandit. Curabitur semper
+              scelerisque justo sit amet eleifend.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor
+              dolor
+              vel mauris vehicula, eget interdum mauris blandit. Curabitur semper scelerisque justo sit amet
+              eleifend.Lorem
+              ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor dolor vel mauris vehicula, eget interdum
+              mauris
+              blandit. Curabitur semper scelerisque justo sit amet eleifend.
+            </div>
+          </div>
+        </div>
+        
+        <div class="opcoes">
+          <div class="botao-texto">
+            <button type="button" id="opcaoA" class="btn  btn-opc"><strong>A) Reposta do item A</strong></button>
+          </div>
+
+          <div class="botao-texto">
+            <button type="button" id="opcaoA" class="btn btn-opc"><strong>B) Resposta do item B</strong></button>
+          </div>
+
+          <div class="botao-texto">
+            <button type="button" id="opcaoA" class="btn btn-opc"><strong>C) Resposta do item C</strong></button>
+          </div>
+
+          <div class="botao-texto">
+            <button type="button" id="opcaoA" class="btn btn-opc"><strong>D) Resposta do item D</strong></button>
+          </div>
+        </div> <!--fim do div de opções-->
+
+
+      </div>
+    </div>
+  </div>
+  <!--
+    tela de pontuação
+  -->
+  <div id="telapontuacao" class="telapontuacao teladesobreposicao">
+    <div class="teladesobreposicao-cont">
+      <!--Div para o cabeçalho todo-->
+      <div class="headerpont">
+        <h2>Pontuação atual: R$???.???,??</h2>
+        <!--Div apenas paraeditar estilos da subheader-->
+        <div class="subhead">
+          <h4>Pergunta Atual: ?/7</h4>
+        </div>
+      </div>
+      <!--Começo do duv e conteudo da tabela-->
+      <div class="tabela">
+        <table class="table table-striped table-hover table-sm">
+          <thead>
+            <tr class="cabecalho-tabela">
+              <th scope="col">N° pergunta</th>
+              <th scope="col">Acertar</th>
+              <th scope="col">Parar</th>
+              <th scope="col">Errar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th id="linha1" scope="row">1</th>
+              <td>R$1 mil</td>
+              <td>R$0</td>
+              <td>R$0</td>
+            </tr>
+            <tr>
+              <th id="linha2" scope="row">2</th>
+              <td>R$5 mil</td>
+              <td>R$1 mil</td>
+              <td>R$500</td>
+            </tr>
+            <tr>
+              <th id="linha3" scope="row">3</th>
+              <td>R$50 mil</td>
+              <td>R$5 mil</td>
+              <td>R$2,5 mil</td>
+            </tr>
+            <tr>
+              <th id="linha4" scope="row">4</th>
+              <td>R$100 mil</td>
+              <td>R$50 mil</td>
+              <td>R$25 mil</td>
+            </tr>
+            <tr>
+              <th id="linha5" scope="row">5</th>
+              <td>R$300 mil</td>
+              <td>R$100 mil</td>
+              <td>R$50 mil</td>
+            </tr>
+            <tr>
+              <th id="linha6" scope="row">6</th>
+              <td>R$500 mil</td>
+              <td>R$300 mil</td>
+              <td>R$150 mil</td>
+            </tr>
+            <tr>
+              <th id="linha7" scope="row">7</th>
+              <td>R$1 milhão</td>
+              <td>R$500 mil</td>
+              <td>R$0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="botao-texto">
+        <button class="btn btn-outline-sdm-danger btn-maior fechar-btn">fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    tela de denuncia
+  -->
+  <div id="telaDenuncia" class="telaDenuncia teladesobreposicao">
+    <div class="teladesobreposicao-cont">
+      <h2>Gostaria de denunciar essa pergunta?</h2>
+      <div class="botoesdedenuncia botao-texto">
+        <button id="denunciado" class="btn btn-outline-sdm btn-maior denunciado">Sim</button>
+        <!--Quando clicar neste botão, realizar a denuncia e usar um alerta para notificar-->
+        <button id="" class="btn btn-outline-sdm btn-maior nao-btn fechar-btn">Não</button>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    tela de saida
+  -->
+  <div id="tela_saida" class="tela_saida teladesobreposicao">
+    <div class="teladesobreposicao-cont">
+      <h2>Você deseja desistir?</h2>
+      <h4>
+        Seu prêmio está estimado em R$???.????,?? <br>
+      </h4>
+      <div class="botao-texto">
+        <button id="incerteza-btn" class="btn btn-outline-sdm btn-maior sim-btn incerteza-btn">Sim</button>
+        <button class="btn btn-outline-sdm btn-maior nao-btn fechar-btn">Não</button>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    tela de "vc tem certeza que quer sair?"
+  -->
+  <div id="tela-temcerteza" class="tela-temcerteza teladesobreposicao">
+    <div class="teladesobreposicao-cont">
+      <div class="vctemcerteza">
+        <h2>Você tem certeza?</h2>
+      </div>
+      <div class="botao-texto" style="margin-top: 53px;">
+        <button class="btn btn-outline-sdm btn-maior nao-btn fechar-btn">Não</button>
+        <button id="desistencia-btn" class="btn btn-outline-sdm btn-maior sim-btn desistencia-btn">Sim</button>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    tela de confimação de saida
+  -->
+  <div id="telaconfirmacaosaida" class="telaconfirmacaosaida teladesobreposicao">
+    <div class="teladesobreposicao-cont">
+      <h1>Você Perdeu!</h1>
+      <h4>Seu prêmio: R$???.???,??</h4>
+      <div class="botao-texto">
+        <a href="tela_principal.html">
+          <button type="button" class="btn btn-outline-sdm btn-maior" style="width: auto !important;"><b>Voltar para o
+              menu</b></button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    Tela de confirmação
+  -->
+  <div id="telasucesso" class="telasucesso teladesobreposicao">
+    <div class="teladesobreposicao-cont">
+      <div class="centralizador">
+        <span>
+          <img src="images/Icons/feitocomcirculogrosso-menor-cut.png" style="margin-bottom: -4px;">
+        </span>
+        <span>
+          <h3 style="display: inline; margin-left: 25px;">Denuncia realizada com sucesso</h3>
+        </span>
+      </div>
+      <div class="subtextoconfirmacao">
+        <small>Clique em qualquer lugar para fechar a tela</small>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 
+    tela de ajuda de dicas
+   -->
+
+  <div id="telaajuda" class="teladesobreposicao telaajuda">
+    <div class="teladesobreposicao-cont">
+      <span>
+        <h1>Como funciona as dicas?</h1>
+        <h4>Cada dica só pode ser usada uma úniva vez, use com sabedoria</h4>
+      </span>
+
+      <div>
+        <button class="btn btn-sdm-info" type="button">
+          <span class="material-symbols-outlined">
+            visibility
+          </span>
+        </button>
+        <span>
+          Mostra a resposta certa
+        </span>
+      </div>
+
+      <div>
+        <button class="btn btn-sdm-info" type="button">
+          <span class="material-symbols-outlined">
+            exposure_neg_2
+          </span>
+        </button>
+        <span>
+          Elimina duas respostas erradas
+        </span>
+      </div>
+
+      <div>
+        <button class="btn btn-sdm-info grupo-botoes-inline" type="button">
+          <span class="material-symbols-outlined">
+            leaderboard
+          </span>
+        </button>
+        <span>
+          O público vota em qual acham que é o certo
+        </span>
+      </div>
+
+      <div>
+        <button class="btn btn-sdm-info grupo-botoes-inline" type="button">
+          <span class="material-symbols-outlined">
+            swap_horiz
+          </span>
+        </button>
+        <span>
+          Troca a pergunta por outra
+        </span>
+      </div>
+
+        <div>
+          <button class="btn btn-outline-sdm-danger btn-maior fechar-btn botao-texto" type="button">
+            fechar
+          </button>
+        </div>
+    </div>
+  </div>
+</body>
+
+</html>

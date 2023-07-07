@@ -1,0 +1,102 @@
+<!--
+  tela apenas de teste, favor desconsiderar
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Show do Milhão</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha384-/Y6pD6pU4a8vI6+OGtoEwGpFdJQ9B8MWvALM2Q6QcYs/RwU8Q1a1TGyoozGksdqr"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"
+    integrity="sha512-jvH9eTzkjKq3+gJW8WevS+bSAmnOUul+M05VLG4FFJv4h4xFsZsYKfBkW8zta/wr6tzmk0COU69kr6aWbfIv+g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Yvckj+OnVuNS6LZ+m6UwNR6J2I6rAxr6Uy7V5C5X5orLFG1/IObY2Jqrgw5b1g7V"
+    crossorigin="anonymous"></script>
+  <title>Página de Sobreposição com Efeito de Blur</title>
+  <link rel="icon" href="images/Icons/Vector.png" type="image/x-icon">
+  <style>
+    /* Estilos para a página principal */
+    .principal {
+      height: 100vh;
+      background-image: url("background.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(0); /* Inicialmente sem desfoque */
+      transition: filter 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Estilos para a página de sobreposição */
+    .sobreposicao {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out, visibility 0s linear 0.3s;
+    }
+
+    /* Estilos para animar a transição */
+    .sobreposicao.active {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease-in-out, visibility 0s linear;
+    }
+
+    /* Estilos para o conteúdo da página de sobreposição */
+    .sobreposicao-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var sobreposicao = document.querySelector(".sobreposicao");
+      var abrirBtn = document.querySelector(".abrir-btn");
+      var fecharBtn = document.querySelector(".fechar-btn");
+      var principal = document.querySelector(".principal");
+
+      abrirBtn.addEventListener("click", function() {
+        sobreposicao.classList.add("active");
+        principal.style.filter = "blur(5px)"; // Aplica o desfoque ao fundo
+      });
+
+      fecharBtn.addEventListener("click", function() {
+        sobreposicao.classList.remove("active");
+        principal.style.filter = "blur(0)"; // Remove o desfoque do fundo
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="principal">
+    <h1>Página Principal</h1>
+    <button class="abrir-btn">Abrir Página de Sobreposição</button>
+  </div>
+
+  <div class="sobreposicao">
+    <div class="sobreposicao-content">
+      <h2>Página de Sobreposição</h2>
+      <p>Conteúdo da página de sobreposição.</p>
+      <button class="fechar-btn">Fechar</button>
+    </div>
+  </div>
+</body>
+</html>
